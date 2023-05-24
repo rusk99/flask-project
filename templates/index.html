@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title%}Главная страница{% endblock %}
+{% block content %}
+<main class="main">
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Obstacle Course Race, или сокращённо OCR</h1>
+            <p>
+                Самые интересные и оперативные новости из мира Гонок с препятствиями.
+                На нашем портале - все о предстоящих и прошедших мероприятиях в мире OCR. А также как развивается спорт и сообщество гонок с препятствиями в нашей стране. 
+            </p>
+            <p>
+                <a class="btn btn-primary btn-lg" href=" {{ url_for('news') }}" role="button">Читать »</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Последние новости -->
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="card-deck mb-3">
+            {% for art in articles %}
+                <div class="card" style="width: 18rem; height: 220px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ art.title }}</h5>
+                            <p class="card-text">{{ art.introduction[:50].strip() }}</p>
+                            <a class="btn btn-secondary"
+                                href="{{ url_for('detailed_post', article_id=art.id) }}"
+                                role="button">Читать >>
+                            </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+    </div>
+    <footer class="footer mb-5">
+        <div class="container">
+            <span class="text-muted">Блог, новости, всё из мира OCR</span>
+        </div>
+    </footer>
+</main>
+{% endblock %}

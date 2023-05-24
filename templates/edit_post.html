@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" nonce="40926625fb354504ba12242c28a" src="//local.adguard.org?ts=1683389831045&amp;type=content-script&amp;dmn=s31vlx.storage.yandex.net&amp;pth=%2Frdisk%2F8bfb4c4f34eab2e893949fc7c19465a43e28dc05924fe3808eb0448b5c66b02c%2F6456cacf%2FScCIrxuu5zf8a1EQSHt-SSb2VOE8RoKizPT6twOytOoPZRO9OsQ7vTZxcXnGFKyYdlApVmJh70jSwV4bkZsOMg%3D%3D%3Fuid%3D0%26filename%3Dedit_post.html%26disposition%3Dattachment%26hash%3DjfaRlOD6pqJZmisP%2FMbdHDt9r3VWjGKjvNsja0jmHI7brHo3DMxP%252BZKOC3kag3AEq%2FJ6bpmRyOJonT3VoXnDag%253D%253D%26limit%3D0%26content_type%3Dtext%252Fhtml%26owner_uid%3D606301850%26fsize%3D2268%26hid%3Da77303f9530e9ce4cc4d7e6ea1d6a6cb%26media_type%3Ddevelopment%26tknv%3Dv2%26rtoken%3DFalXJ8zl2NVI%26force_default%3Dno%26ycrid%3Dna-96af6de620f3a955a82a13b7e3daeda4-downloader18f%26ts%3D5fb0d581d11c0%26s%3Da50fba061d74428d345752023a500a76ff4c2a305d02c5a32e71cb37d9cd8877%26pb%3DU2FsdGVkX18odTWw-jtHKu4T5fX9JciGYIttrMwaZ2ka5tAyvkiFBcfewq3BRNdgAOQUZ1amr64R5Sp7NBvDgQvjJ4Rtg6DxU3o2IeMAG5w&amp;app=browser.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="40926625fb354504ba12242c28a" src="//local.adguard.org?ts=1683389831045&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <title>Изменение статьи</title>
+</head>
+<body class="container">
+    <main class="mt-5 container">
+        <form method="POST">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Название статьи</label>
+                <input type="text"
+                       class="form-control"
+                       id="exampleFormControlInput1"
+                       name="title"
+                       placeholder="Введите название статьи"
+                       value="{{ article.title }}"
+                       >
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Рубрика статьи</label>
+                <select class="form-control" name="category_select" id="exampleFormControlSelect1">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Вступление статьи</label>
+                <textarea class="form-control" name="introduction" id="exampleFormControlTextarea1" rows="2">{{article.introduction}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Текст статьи</label>
+                <textarea class="form-control" name="article_text" id="exampleFormControlTextarea1" rows="5">{{article.text}}</textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Опубликовать</button>
+                <a class="btn btn-danger" href="{{ url_for('index') }}">Отмена</a>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

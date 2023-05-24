@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" nonce="ca5ae8b942424d6ea3a67b0d37d" src="//local.adguard.org?ts=1681573185782&amp;type=content-script&amp;dmn=docviewer.yandex.ru&amp;pth=%2Fview%2F403179351%2Fsource%3Furl%3Dya-disk-public%253A%252F%252FcbXVfjgFObfAl3NBhJdjfJXDkiUbj0h6Gqx4f1nQJU4Dz2ldeEvf8nT7s412Q9%252Bcq%252FJ6bpmRyOJonT3VoXnDag%253D%253D%26archive-path%3D%252F%252Findex.html%26ts%3D1878599cd79%26token%3D8B%252Fa7%252B77gJiHrAd3WkPWUQ%253D%253D%26name%3Dfront-end.rar%26dsid%3Dd2a3939cf9289e88180d29d12ce6a224&amp;app=browser.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="ca5ae8b942424d6ea3a67b0d37d" src="//local.adguard.org?ts=1681573185782&amp;name=AdGuard%20Extra&amp;type=user-script"></script><link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <title>{% block title%}{% endblock %}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand mr-5" href="#">OCR</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('news')}}">Новости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('blog') }}">Блог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('new_post') }}">Добавить статью</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin.index')}}">Админ-панель</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

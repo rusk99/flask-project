@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" nonce="ca5ae8b942424d6ea3a67b0d37d" src="//local.adguard.org?ts=1681573185782&amp;type=content-script&amp;dmn=docviewer.yandex.ru&amp;pth=%2Fview%2F403179351%2Fsource%3Furl%3Dya-disk-public%253A%252F%252FcbXVfjgFObfAl3NBhJdjfJXDkiUbj0h6Gqx4f1nQJU4Dz2ldeEvf8nT7s412Q9%252Bcq%252FJ6bpmRyOJonT3VoXnDag%253D%253D%26archive-path%3D%252F%252Fdetailed.html%26ts%3D1878599c6dd%26token%3D%252FvQVByK1yXnQ7dJPfto2fg%253D%253D%26name%3Dfront-end.rar%26dsid%3Dd2a3939cf9289e88180d29d12ce6a224&amp;app=browser.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="ca5ae8b942424d6ea3a67b0d37d" src="//local.adguard.org?ts=1681573185782&amp;name=AdGuard%20Extra&amp;type=user-script"></script><link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <!-- Custom CSS for current page -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cover(1).css') }}">
+    <title>{{ article.title }}</title>
+</head>
+<body class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading">{{ article.title }}</h1>
+            <p class="lead">
+                {{ article.introduction }}
+            </p>
+            <hr class="line">
+            <p class="lead">
+                {{ article.text }}
+            </p>
+            <p class="lead">
+                {{ article.pub_date.date() }}
+            </p>
+            <p class="lead">
+                <a href="{{ url_for('index') }}" class="btn btn-lg btn-secondary">Вернуться на главную</a>
+                <a href="{{ url_for('delete_post', article_id=article.id) }}" class="btn btn-lg btn-danger">Удалить </a>
+            </p>
+            
+        </main>
+    </div>
+</body>
+</html>

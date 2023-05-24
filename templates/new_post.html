@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" nonce="40926625fb354504ba12242c28a" src="//local.adguard.org?ts=1683115566424&amp;type=content-script&amp;dmn=s03vlx.storage.yandex.net&amp;pth=%2Frdisk%2F265bdabe454d723e3d4866c9cab11f37503297b55155037e7cd2203e7b4770b6%2F645286d8%2FScCIrxuu5zf8a1EQSHt-SWhdK1_sHsA40NSdC7lvHw1fUQu6Qs_lCzjKyjlAnFgN-2TSMNZ5Uy6lTDYLp3RXOQ%3D%3D%3Fuid%3D0%26filename%3Dnew_post.html%26disposition%3Dattachment%26hash%3Dj170p%252Bic8KmJTVdo8MN5DjMaOyPqYQ10iVRI6C4Dv7qqhGhrAUr7wjZZr9BaBBItq%2FJ6bpmRyOJonT3VoXnDag%253D%253D%26limit%3D0%26content_type%3Dtext%252Fhtml%26owner_uid%3D606301850%26fsize%3D2123%26hid%3D9b09a28dbf1566c9828596dd2bd058c4%26media_type%3Ddevelopment%26tknv%3Dv2%26rtoken%3D1ixVEUcAEMi3%26force_default%3Dno%26ycrid%3Dna-7ff6a7e39541417e11ef61e85221447d-downloader3e%26ts%3D5facc420d6600%26s%3D80622c42b6827b07973a4a6c52f8e584e23dc6c64b6790d9eab8b2a9f8129794%26pb%3DU2FsdGVkX1-WRknakJgI8laj96hCAp0rW0-w1xsa0h8N4h7g0ED_J3QUTSfWfGrTJE0Do7K3Z2iLUHoJrlZ2mjJ81CI15E-1ePAKXqlau1w&amp;app=browser.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="40926625fb354504ba12242c28a" src="//local.adguard.org?ts=1683115566424&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+	<title>Добавление статьи</title>
+</head>
+<body class="container">
+	<main class="mt-5 container">
+		<form method="POST">
+			<!-- Одно поле формы -->
+			<div class="form-group">
+                <label for="exampleFormControlInput1">Название статьи</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Введите название статьи">
+            </div>
+            <!-- Выбор категории -->
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Рубрика статьи</label>
+                <select class="form-control" name="category_select" id="exampleFormControlSelect1">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                    
+                </select>
+            </div>
+            <!-- Поле формы для большого текста -->
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Вступление статьи</label>
+                <textarea class="form-control" name="introduction" id="exampleFormControlTextarea1" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea2">Текст статьи</label>
+                <textarea class="form-control" name="article_text" id="exampleFormControlTextarea2" rows="2"></textarea>
+            </div>
+            <!-- Кнопки под формой -->
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Опубликовать</button>
+                <a class="btn btn-danger" href=" {{ url_for('index') }}">Отмена</a>
+            </div>
+		</form>
+	</main>	
+</body>
+</html>
